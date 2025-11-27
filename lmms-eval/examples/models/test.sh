@@ -142,7 +142,7 @@ run_one() {
   # Build the base command
   # cmd=(accelerate launch --num_processes=1 --main_process_port="$port" -m lmms_eval
   cmd=(python -m lmms_eval
-       --model vision_r1 --force_simple
+       --model qwen_custom --force_simple
        --model_args "$model_args"
        --tasks "$task"
        --batch_size 1
@@ -160,23 +160,20 @@ run_one() {
 
 experiments=(
 
-  "device=0 ckpt=OPENVL task=mme limit=1000 majority_vote=5 temperature=1.0" \
+  "device=0 ckpt=OPENVL task=mme limit=1000" \
   # "device=0 ckpt=QWEN task=mme limit=1000 majority_vote=5 temperature=1.0" \
 
-  "device=1 ckpt=OPENVL task=mme limit=1000 majority_vote=5 temperature=1.0 \
-  enable_kdvz=True kdvz_ratio=0.5 \
-  enable_kd_prefill=True prefill_anchor=all prefill_ratio=0.5 prefill_prune_after_layer=8" \
-  # "device=1 ckpt=QWEN task=mme limit=1000 majority_vote=5 temperature=1.0 \
+  # "device=1 ckpt=OPENVL task=mme limit=1000 majority_vote=5 temperature=1.0 \
   # enable_kdvz=True kdvz_ratio=0.5 \
   # enable_kd_prefill=True prefill_anchor=all prefill_ratio=0.5 prefill_prune_after_layer=8" \
 
-  "device=2 ckpt=OPENVL task=mme limit=1000 majority_vote=5 temperature=1.0 \
-  enable_kdvz=True kdvz_ratio=0.75 \
-  enable_kd_prefill=True prefill_anchor=all prefill_ratio=0.5 prefill_prune_after_layer=8" \
+  # "device=2 ckpt=OPENVL task=mme limit=1000 majority_vote=5 temperature=1.0 \
+  # enable_kdvz=True kdvz_ratio=0.75 \
+  # enable_kd_prefill=True prefill_anchor=all prefill_ratio=0.5 prefill_prune_after_layer=8" \
 
-  "device=3 ckpt=OPENVL task=mme limit=1000 majority_vote=5 temperature=1.0 \
-  enable_kdvz=True kdvz_ratio=0.75 \
-  enable_kd_prefill=True prefill_anchor=all prefill_ratio=0.75 prefill_prune_after_layer=8" \
+  # "device=3 ckpt=OPENVL task=mme limit=1000 majority_vote=5 temperature=1.0 \
+  # enable_kdvz=True kdvz_ratio=0.75 \
+  # enable_kd_prefill=True prefill_anchor=all prefill_ratio=0.75 prefill_prune_after_layer=8" \
 
 
 )

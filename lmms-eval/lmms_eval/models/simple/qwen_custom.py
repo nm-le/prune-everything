@@ -45,8 +45,8 @@ except ImportError:
     eval_logger.warning("Failed to import qwen_vl_utils; Please install it via `pip install qwen-vl-utils`")
 
 
-@register_model("vision_r1")
-class VisionR1(lmms):
+@register_model("qwen_custom")
+class QwenCustom(lmms):
     """
     Basically Qwen2.5_VL Model
     "https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct"
@@ -156,7 +156,7 @@ class VisionR1(lmms):
 
         self.benchmark = benchmark
 
-        # for logging
+        # Minh: for logging
         # add date time prefix to log file path
         # datetime format: YYYYMMDD
         cur_datetime = time.strftime("%Y%m%d", time.localtime())
@@ -504,7 +504,7 @@ class VisionR1(lmms):
                 }
 
                 
-
+                # Minh: append log line to log file
                 with open(self.log_file_path, "a", encoding="utf-8") as f:
                     f.write("{\n")
                     f.write(f'  "context": {json.dumps(context, ensure_ascii=False)},\n')

@@ -4,7 +4,7 @@ import sys
 from typing import Literal
 
 from loguru import logger
-from .simple.vision_r1 import VisionR1
+from .simple.qwen_custom import QwenCustom
 # os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "1"
 
 logger.remove()
@@ -56,6 +56,7 @@ AVAILABLE_SIMPLE_MODELS = {
     "qwen2_vl": "Qwen2_VL",
     "qwen_vl": "Qwen_VL",
     "qwen_vl_api": "Qwen_VL_API",
+    "qwen_custom": "QwenCustom",
     "reka": "Reka",
     "ross": "Ross",
     "slime": "Slime",
@@ -66,7 +67,6 @@ AVAILABLE_SIMPLE_MODELS = {
     "videollama3": "VideoLLaMA3",
     "video_llava": "VideoLLaVA",
     "vila": "VILA",
-    "vision_r1": "VisionR1",
     "vita": "VITA",
     "vllm": "VLLM",
     "xcomposer2_4KHD": "XComposer2_4KHD",
